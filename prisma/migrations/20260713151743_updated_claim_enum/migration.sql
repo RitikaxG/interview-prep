@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "ClaimStatus" ADD VALUE 'UPLOADED_AND_RUN_CREATED';

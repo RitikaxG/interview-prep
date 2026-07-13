@@ -11,3 +11,51 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum ClaimStatus {
+  UPLOADED_AND_RUN_CREATED
+  QUEUED
+  FAILED_TO_QUEUE
+}
+
+enum ClaimType {
+  motor
+  health
+}
+
+enum UserRole {
+  reviewer
+  admin
+}
+
+model User {
+  id String @id @default(uuid())
+  role UserRole
+
+  documents ClaimDocument[]
+  runs ClaimRun[]
+}
+
+model ClaimDocument {
+  id String @id @default(uuid())
+  fileHash String
+  claimType ClaimType
+
+  uploadedById String
+  user User @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+
+  run ClaimRun[]
+}
+
+model ClaimRun {
+  id String @id @default(uuid())
+
+  documentId String
+  document ClaimDocument @relation(fields: [documentId], references: [id], onDelete:Cascade)
+
+  createdById String
+  user User @relation(fields: [createdById], references: [id])
+
+  status ClaimStatus
+  traceId String
+}
