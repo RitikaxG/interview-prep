@@ -15,13 +15,17 @@
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "axios": "^1.18.1",
     "bullmq": "^5.80.2",
     "express": "^5.2.1",
     "pg": "^8.22.0",
-    "redis": "^6.1.0"
+    "redis": "^6.1.0",
+    "vitest": "^4.1.10"
   },
   "scripts": {
     "db:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
-    "db:generate": "prisma generate --schema=./prisma/schema.prisma"
+    "db:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "test": "vitest"
   }
 }

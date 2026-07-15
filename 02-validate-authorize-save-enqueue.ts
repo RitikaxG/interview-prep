@@ -323,7 +323,7 @@ const enqueueExtraction = async (
     };
 }
 
-const postClaimHandler = async (
+export const postClaimHandler = async (
     req : HandlerRequest
 ): Promise<HandlerResponse> => {
     const ctx : RequestContext = {
