@@ -21,7 +21,8 @@
     "express": "^5.2.1",
     "pg": "^8.22.0",
     "redis": "^6.1.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "zod": "^4.4.3"
   },
   "scripts": {
     "db:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",

@@ -122,4 +122,5 @@ const urls = [
 ]
 const controller = new AbortController;
 const results = await check10Urls(urls,3000,controller.signal);
+controller.abort();
 console.log(results);
